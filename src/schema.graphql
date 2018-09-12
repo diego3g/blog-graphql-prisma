@@ -1,14 +1,33 @@
-# import Post from './generated/prisma.graphql'
-# import User from './generated/prisma.graphql'
+# import Post from "./generated/prisma.graphql"
+# import User from "./generated/prisma.graphql"
 
 type Query {
-  posts(searchString: String): [Post!]!
-  user(id: ID!): User
+  feed: [Post!]!
+  drafts: [Post!]!
+  post(id: ID!): Post
+  me: User
 }
 
 type Mutation {
-  createDraft(authorId: ID!, title: String!, content: String!): Post
-  publish(id: ID!): Post
-  deletePost(id: ID!): Post
-  signup(name: String!): User!
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  createDraft(title: String!, text: String!): Post!
+  publish(id: ID!): Post!
+  deletePost(id: ID!): Post!
+}
+
+type Subscription {
+  feedSubscription: PostSubscriptionPayload!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+  posts: [Post!]!
 }

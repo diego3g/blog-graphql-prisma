@@ -6,4 +6,4 @@ hooks:
     - graphql get-schema -p prisma
     - graphql codegen
 
-secret: ${env:PRISMA_MANAGEMENT_API_SECRET}
+secret: ${env:APP_SECRET}

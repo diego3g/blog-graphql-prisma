@@ -19,7 +19,7 @@ cd blog-graphql-prisma
 npm install
 ```
 
-A partir daqui você precisará do [https://www.docker.com/](Docker) instalado.
+A partir daqui você precisará do [Docker](https://www.docker.com/) instalado.
 
 Criar arquivo com variáveis ambiente:
 
